@@ -1,0 +1,22 @@
+1<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<h3>Captcha Verification</h3>
+<form th:active="@{/app/verify}" method="POST" th:object="${captcha}">
+<label for "image">CAPTCHA</label>
+<input type="image" id="image" th:src="*{'data:realCaptcha/jpg;base64,'+ealCaptcha}">
+<input type="hidden" th:field="*{hiddenCaptcha}"/><br>
+<label for="captchatext">Enter Captcha text</label>
+<input type="text"  id="captchatext" th:field="*{captcha}"/>
+<input type="submit" value="Verify"/>
+</form>
+<div th:if="${message!=null}">
+<span style="color:red;" th:text="${message}"></span>
+</div>
+
+</body>
+</html>
